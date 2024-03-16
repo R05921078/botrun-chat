@@ -1,0 +1,10 @@
+src
+node_modules
+
+.env
+.DS_store
+
+*.tgz
+
+tsconfig.json
+rollup.config.js
