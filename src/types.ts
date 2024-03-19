@@ -26,7 +26,7 @@ export type MessageContainerProps = {
 } & RemarkPlugins
 
 export type SpeechToText = {
-  handleSpeechToText?: (file: Blob) => Promise<string>
+  handleSpeechToText?: (file: File) => Promise<string>
 }
 
 export type UploadFile = {

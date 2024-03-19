@@ -57,9 +57,9 @@ An array of message objects that the chat will display. Each `MessageProps` obje
 
 A callback function that is called when a new message is sent. It receives the message content as a parameter.
 
-### `handleSpeechToText` (`(file: Blob) => Promise<string>`, optional)
+### `handleSpeechToText` (`(file: File) => Promise<string>`, optional)
 
-A function for converting speech to text. It takes a `Blob` representing the audio file as input and returns a `Promise` that resolves to a string of the converted text.
+A function for converting speech to text. It takes a `File` representing the audio file as input and returns a `Promise` that resolves to a string of the converted text.
 
 ### `handleUploadFiles` (`(files: FileList) => void`, optional)
 
