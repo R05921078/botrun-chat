@@ -16,14 +16,12 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
         name: "@botrun/chat",
         inlineDynamicImports: true,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
         inlineDynamicImports: true,
       },
     ],
