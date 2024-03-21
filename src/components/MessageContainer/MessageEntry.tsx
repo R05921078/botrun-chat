@@ -46,8 +46,8 @@ export const MessageEntry = memo((props: MessageProps) => {
         <div className="suggestion-block">
           <h3>可以進行的動作</h3>
           <div className="br-btn-group">
-            {suggestions.map(s => (
-              <SuggestionEntry {...s} />
+            {suggestions.map((s, index) => (
+              <SuggestionEntry key={`br-chat-suggestion-${index}`} {...s} />
             ))}
           </div>
         </div>
