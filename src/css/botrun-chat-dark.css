@@ -1,4 +1,7 @@
+@charset "UTF-8";
 :root {
+  /*屬性-屬性-目標-
+    /*---風格設定---*/
   --color-main: #c0b977;
   --color-light: #f3e992;
   --color-active: #c0b977;
@@ -7,21 +10,31 @@
   --rd-form: 8px;
   --rd-area: 12px;
   --gap: 8px;
+  /*用於卷軸*/
   --color-scrollbar: #626262;
   --color-scrollbar-sidebar: var(--color-scrollbar);
+  /*漸層*/
   --grd-dark: linear-gradient(-30deg, #ffcc34, #be8e00);
   --grd-bright: linear-gradient(-30deg, #ffce3b, #e0a800);
   --grd-suggestion: linear-gradient(to bottom, #f3e99200, #f3e99290, #f3e992, #f3e99290, #f3e99200);
+  /*---文字顏色---*/
   --color-text-main: #fff;
   --color-text-second: #bbb;
   --color-text-third: #666;
   --color-br-title-block: #777;
+  /*小區塊的文字*/
+  /*---全域---*/
   --color-border: #66666660;
   --color-bg: #333;
+  /*背景*/
   --color-bg-area: #454545;
+  /*背景*/
+  /*---連結---*/
   --color-a: var(--color-active);
   --color-a-hover: var(--color-light);
+  /*---區塊顏色---*/
   --color-bg-popup: 35, 35, 35;
+  /*---按鈕---*/
   --color-btn-gray: var(--color-text-third);
   --color-btn-gray-hover: var(--color-text-main);
   --color-border-btn-normal: var(--color-main);
@@ -33,33 +46,43 @@
   --color-bg-btn-disabled: #dfdfdf;
   --color-text-btn-disabled: #878787;
   --color-border-btn-disabled: #dfdfdf;
+  /*明顯按鈕*/
   --color-border-btn-obvious: var(--color-main);
   --color-bg-btn-obvious: var(--color-main);
   --color-text-btn-obvious: #000;
   --color-border-btn-obvious-hover: #fff;
   --color-bg-btn-obvious-hover: #fff;
   --color-text-btn-obvious-hover: #000;
+  /*header*/
   --color-app: #fff;
   --color-bg-header: #232323;
+  /*---對話區塊---*/
   --width-chat: clamp(360px, 72%, 960px);
   --color-bg-chat: #2d2c2c;
+  /*f4f4f4*/
+  /*chat輸入框*/
   --color-bg-chat-input: #3a3a3a;
   --shadow-bg-chat-input: rgba(0, 0, 0, 0.3) 0px -20px 29px 0px;
   --color-text-chat-input: var(--color-text-main);
   --bg-assistant: var(--color-bg-chat);
+  /*一般*/
   --color-bg-btnfn: #f0efe200;
   --color-icon-btnfn: #fff;
   --color-bg-btnfn-hover: #514f40;
   --color-icon-btnfn-hover: var(--color-main);
   --color-bg-voice-active: var(--color-light);
+  /**/
   --color-icon-voice-active: #000;
+  /*submit*/
   --color-bg-submit: #fdea3f;
   --color-icon-submit: #000;
   --color-bg-submit-hover: #000;
   --color-icon-submit-hover: #fdea3f;
+  /*對話列*/
   --padding-bubble: 0 0 8px;
   --padding-self: 8px 12px;
   --color-bg-bubble: transparent;
+  /*#454545*/
   --color-text-self: #e7e3d1;
   --color-bg-self: linear-gradient(to right, #60584a 0%, #4d4537 80%);
   --color-title-sugst: #9d975e;
@@ -70,16 +93,23 @@
   --color-text-sugst-hover: #1d1d1d;
   --color-border-sugst-hover: var(--color-main);
   --color-bg-sugst-hover: var(--color-main);
+  /*建議按鈕*/
   --color-border-btn-sugst: var(--color-main);
   --color-bg-btn-sugst: #222;
   --color-text-btn-sugst: var(--color-main);
   --color-border-btn-sugst-hover: var(--color-main);
   --color-bg-btn-sugst-hover: var(--color-main);
   --color-text-btn-sugst-hover: #000;
+  /*---對話上方公佈欄---*/
   --color-bg-chat-top-fnbar: #13121294;
   --color-border-chat-top-fnbar: #1e1d1d;
   --color-text-chat-top-fnbar: var(--color-text-second);
   --shadow-chat-top-fnbar: rgba(0, 0, 0, 0.25) 0px 5px 15px;
+  /*---session 區塊 / sidebar---*/
+  --color-default-avatar: #000;
+  --color-bg-default-avatar: var(--color-main);
+  --color-default-avatar-hover: var(--color-main);
+  --color-bg-default-avatar-hover: #000;
   --color-bg-sidebar: #232323;
   --color-bg-session-hover: #3b3b3b;
   --color-text-session: #999;
@@ -87,8 +117,11 @@
   --color-text-session-active: #ccc;
   --color-strong-session-active: var(--color-active);
   --color-text-bot: #ccc;
+  /*機器人active時的文字與icon顏色*/
   --color-bg-bot-hover: linear-gradient(-30deg, #c0b977, #c0b977);
   --color-text-bot-active: #232323;
+  /*機器人active時的文字與icon顏色*/
+  /*---form---*/
   --gap-form: 8px;
   --rd-form: 4px;
   --height-input: 36px;
@@ -103,6 +136,7 @@
   --color-border-checkbox-active: #ccc;
   --check-img: url("../img/check-black.svg");
   --folder-img: url("../img/folder-yellow.svg");
+  /*---markdown---*/
   --color-highlight-markdown: var(--color-main);
   --color-bg-list-markdown: #87846f;
   --color-a-markdown: var(--color-light);

@@ -1,4 +1,6 @@
+@charset "UTF-8";
 :root {
+  /*---風格設定---*/
   --color-main: #fdea3f;
   --color-light: #fdea3f;
   --color-active: #ddc807;
@@ -7,21 +9,31 @@
   --rd-form: 8px;
   --rd-area: 12px;
   --gap: 8px;
+  /*用於卷軸*/
   --color-scrollbar: #cfcfcf;
   --color-scrollbar-sidebar: var(--color-scrollbar);
+  /*漸層*/
   --grd-dark: linear-gradient(-30deg, #ffcc34, #be8e00);
   --grd-bright: linear-gradient(-30deg, #ffce3b, #e0a800);
   --grd-suggestion: linear-gradient(to bottom, #dfdeca00, #dfdeca8f, #dfdeca, #dfdeca8f, #dfdeca00);
+  /*---文字顏色---*/
   --color-text-main: #222;
   --color-text-second: #444;
   --color-text-third: #565656;
   --color-br-title-block: #999;
+  /*小區塊的文字*/
+  /*---全域---*/
   --color-border: #cecece60;
   --color-bg: #f0f4f7;
+  /*背景*/
   --color-bg-area: #fff;
+  /*背景*/
+  /*---連結---*/
   --color-a: #737308;
   --color-a-hover: #9d9d3a;
+  /*---區塊顏色---*/
   --color-bg-popup: 240, 240, 240;
+  /*---按鈕---*/
   --color-btn-gray: var(--color-text-third);
   --color-btn-gray-hover: var(--color-text-main);
   --color-border-btn-normal: #d8d8bc;
@@ -33,30 +45,40 @@
   --color-bg-btn-disabled: #dfdfdf;
   --color-text-btn-disabled: #878787;
   --color-border-btn-disabled: #dfdfdf;
+  /*明顯按鈕*/
   --color-border-btn-obvious: #ead621;
   --color-bg-btn-obvious: var(--color-main);
   --color-text-btn-obvious: #000;
   --color-border-btn-obvious-hover: #000;
   --color-bg-btn-obvious-hover: #000;
   --color-text-btn-obvious-hover: #d8d8bc;
+  /*header*/
   --color-app: #000;
   --color-bg-header: #f7f5f1;
+  /*---對話區塊---*/
   --width-chat: clamp(360px, 72%, 960px);
   --color-bg-chat: #fff;
+  /*f4f4f4*/
+  /*chat輸入框*/
   --color-bg-chat-input: #eceae5;
+  /**/
   --shadow-bg-chat-input: rgba(100, 100, 111, 0.2) 0px 0 20px 0px;
   --color-text-chat-input: var(--color-text-main);
   --bg-assistant: var(--color-bg-chat);
+  /*一般*/
   --color-bg-btnfn: #f0efe200;
   --color-icon-btnfn: #000;
   --color-bg-btnfn-hover: #f3f2e7;
   --color-icon-btnfn-hover: #000;
   --color-bg-voice-active: var(--color-light);
+  /**/
   --color-icon-voice-active: #000;
+  /*submit*/
   --color-bg-submit: #000;
   --color-icon-submit: #fdea3f;
   --color-bg-submit-hover: #fdea3f;
   --color-icon-submit-hover: #000;
+  /*對話列*/
   --padding-bubble: 0 0 8px;
   --padding-self: 8px 12px;
   --color-bg-bubble: #fff;
@@ -70,16 +92,23 @@
   --color-text-sugst-hover: var(--color-light);
   --color-border-sugst-hover: #000;
   --color-bg-sugst-hover: #000;
+  /*建議按鈕*/
   --color-border-btn-sugst: #d8d8bc;
   --color-bg-btn-sugst: #fff;
   --color-text-btn-sugst: var(--color-a);
   --color-border-btn-sugst-hover: #000;
   --color-bg-btn-sugst-hover: #000;
   --color-text-btn-sugst-hover: #d8d8bc;
+  /*---對話上方公佈欄---*/
   --color-bg-chat-top-fnbar: #000;
   --color-border-chat-top-fnbar: #000;
   --color-text-chat-top-fnbar: #fff;
   --shadow-chat-top-fnbar: rgba(118, 118, 118, 0.25) 0px 5px 15px;
+  /*---session 區塊 / sidebar---*/
+  --color-default-avatar: #000;
+  --color-bg-default-avatar: var(--color-main);
+  --color-default-avatar-hover: #000;
+  --color-bg-default-avatar-hover: var(--color-main);
   --color-bg-sidebar: #f7f5f1;
   --color-bg-session-hover: var(--color-light);
   --color-text-session: #323232;
@@ -87,8 +116,12 @@
   --color-text-session-active: #333;
   --color-strong-session-active: #000;
   --color-text-bot: #000;
+  /*機器人active時的文字與icon顏色*/
   --color-bg-bot-hover: #000;
+  /*機器人active時的文字與icon顏色*/
   --color-text-bot-active: var(--color-light);
+  /*機器人active時的文字與icon顏色*/
+  /*---form---*/
   --gap-form: 8px;
   --rd-form: 4px;
   --height-input: 36px;
@@ -103,6 +136,7 @@
   --color-border-checkbox-active: #000;
   --check-img: url("../img/check.svg");
   --folder-img: url("../img/folder-yellow.svg");
+  /*---markdown---*/
   --color-highlight-markdown: #000;
   --color-bg-list-markdown: #97836b;
   --color-a-markdown: var(--color-a);
