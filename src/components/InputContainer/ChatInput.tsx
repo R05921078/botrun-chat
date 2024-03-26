@@ -4,7 +4,7 @@ import { Recorder } from "./Recorder"
 import { UploadButton } from "./UploadButton"
 
 export default function TextArea(props: TextAreaProps) {
-  const { onMessageSend, handleSpeechToText, handleUploadFiles } = props
+  const { onMessageSend, handleSpeechToText, handleUploadFiles, disabled = false } = props
   const defaultHeight = 48
   const [text, setText] = useState("")
   const [isRecording, setIsRecording] = useState(false)
@@ -50,10 +50,11 @@ export default function TextArea(props: TextAreaProps) {
     textareaRef.current?.focus()
   }
   function handleSend() {
-    if (text.trim() === "") return
+    if (disabled || text.trim() === "") return
     onMessageSend(text)
     setTextareaHeight(defaultHeight)
     clearText()
+    textareaRef.current?.focus()
   }
   function onKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (event.shiftKey && event.key === "Enter") {
@@ -102,7 +103,7 @@ export default function TextArea(props: TextAreaProps) {
       ></textarea>
 
       <div className="fn">
-        <UploadButton handleUploadFiles={handleUploadFiles} />
+        <UploadButton handleUploadFiles={handleUploadFiles} disabled={disabled} />
         <Recorder
           setIsRecording={setIsRecording}
           setText={setText}
@@ -111,7 +112,12 @@ export default function TextArea(props: TextAreaProps) {
         <button className="br-btn icon-only btn-remove" title="清除輸入文字" onClick={clearText}>
           <i className="icon icon-5"></i>
         </button>
-        <button className="br-btn icon-only btn-submit" title="送出" onClick={handleSend}>
+        <button
+          className={`br-btn icon-only btn-submit ${disabled ? "--disabled" : ""}`}
+          title="送出"
+          disabled={disabled}
+          onClick={handleSend}
+        >
           <i className="icon icon-4"></i>
         </button>
       </div>

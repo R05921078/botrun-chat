@@ -31,6 +31,7 @@ export type SpeechToText = {
 
 export type UploadFile = {
   handleUploadFiles?: (files: FileList) => void
+  disabled?: boolean
 }
 
 export type RemarkPlugins = {
@@ -44,6 +45,7 @@ export type RecorderProps = {
 
 export type TextAreaProps = {
   onMessageSend: (message: string) => void
+  disabled?: boolean
 } & SpeechToText &
   UploadFile
 

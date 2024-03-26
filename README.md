@@ -45,9 +45,9 @@ export default App;
 
 This section outlines the props accepted by the `BotrunChat` component, including their data types, whether they are optional, and a brief description of each.
 
-### `theme` (`"dark" | "light"`, optional)
+### `disabled` (`boolean`, optional)
 
-Specifies the theme of the chat UI. Default is `"dark"`.
+When `true`, it disables user interactions such as sending messages and uploading files. The default value is `false`.
 
 ### `messages` (`MessageProps[]`, required)
 
