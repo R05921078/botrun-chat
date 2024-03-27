@@ -17,6 +17,7 @@ export type SuggestionProps = {
 export type CodeBlockProps = {
   match: RegExpExecArray | null
   children: React.ReactNode
+  handleCopy: (text: string) => void
 }
 
 export type AssistantProps = { assistantComponent?: React.ReactElement | null }

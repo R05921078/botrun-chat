@@ -10,6 +10,17 @@ function arePropsEqual(oldProps: MessageProps, newProps: MessageProps) {
 
 export const MessageEntry = memo((props: MessageProps) => {
   const { sender, avatar, name, content, suggestions, remarkPlugins } = props
+  const handleCopy = (text: string) => {
+    text = text + "\n\n[Boosted by Botrun.ai]"
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        // console.log("[FileCopyButton] Code copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("[FileCopyButton] Failed to copy: ", err)
+      })
+  }
   return (
     <div className={`br-chat-item ${sender}`}>
       <div className="avatar-block">
@@ -30,7 +41,9 @@ export const MessageEntry = memo((props: MessageProps) => {
               const { children, className, node, ...rest } = props
               const match = /language-(\w+)/.exec(className || "")
               return match ? (
-                <CodeBlock match={match}>{children}</CodeBlock>
+                <CodeBlock match={match} handleCopy={handleCopy}>
+                  {children}
+                </CodeBlock>
               ) : (
                 <code {...rest} className={className}>
                   {children}
@@ -42,6 +55,16 @@ export const MessageEntry = memo((props: MessageProps) => {
           {content}
         </Markdown>
       </div>
+      {sender !== "system" ? (
+        <div className="br-chatfn-block">
+          <button className="br-btn icon-only square no-border" onClick={() => handleCopy(content)}>
+            <i className="icon icon-26"></i>
+          </button>
+          {/* <button className="br-btn icon-only square no-border">
+          <i className="icon icon-24"></i>
+        </button> */}
+        </div>
+      ) : null}
       {suggestions ? (
         <div className="suggestion-block">
           <h3>可以進行的動作</h3>
