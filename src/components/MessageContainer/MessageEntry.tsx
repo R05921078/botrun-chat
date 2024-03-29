@@ -11,7 +11,7 @@ function arePropsEqual(oldProps: MessageProps, newProps: MessageProps) {
 export const MessageEntry = memo((props: MessageProps) => {
   const { sender, avatar, name, content, suggestions, remarkPlugins } = props
   const handleCopy = (text: string) => {
-    text = text + "\n\n[Boosted by Botrun.ai]"
+    if (sender !== "self") text = text + "\n[Boosted by Botrun.ai]"
     navigator.clipboard
       .writeText(text)
       .then(() => {
