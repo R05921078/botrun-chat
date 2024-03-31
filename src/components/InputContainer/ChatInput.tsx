@@ -14,7 +14,6 @@ export default function TextArea(props: TextAreaProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   function adjustHeight(e: Event) {
-    console.log("first")
     if (!textareaRef.current || !wrapperRef.current) return
     const textarea = textareaRef.current
     const wrapper = wrapperRef.current
@@ -43,7 +42,12 @@ export default function TextArea(props: TextAreaProps) {
   }
   function clearText() {
     setText("")
-    textareaRef.current?.focus()
+    if (textareaRef.current) {
+      textareaRef.current.focus()
+      wrapperRef.current?.classList.remove("--col-type")
+      textareaRef.current.style.height = defaultHeight + "px"
+      document.documentElement.style.setProperty("--chat-input-height", defaultHeight + "px")
+    }
   }
   function handleSend() {
     if (disabled || text.trim() === "") return
