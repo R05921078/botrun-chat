@@ -30,7 +30,14 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      terser(),
+      terser({
+        format: {
+          comments: false,
+        },
+        compress: {
+          drop_console: true,
+        },
+      }),
       json(),
       postcss({
         minimize: true,
