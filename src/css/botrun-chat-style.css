@@ -589,6 +589,52 @@ table {
   padding: 0;
 }
 
+.br-chat-input textarea,
+.code-style-container .code-style-body {
+  /* 為 Webkit 瀏覽器（如 Chrome 和 Safari）設定滾動條樣式 */
+}
+
+.br-chat-input textarea,
+.code-style-container .code-style-body {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  /* 滾動條顏色 背景顏色 */
+}
+
+.br-chat-input textarea::-webkit-scrollbar,
+.code-style-container .code-style-body::-webkit-scrollbar {
+  width: 12px;
+  /* 滾動條寬度 */
+}
+
+.br-chat-input textarea::-webkit-scrollbar-track,
+.code-style-container .code-style-body::-webkit-scrollbar-track {
+  background: transparent;
+  /* 滾動條背景顏色 */
+}
+
+.br-chat-input textarea::-webkit-scrollbar-thumb,
+.code-style-container .code-style-body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  /* 滾動條顏色 */
+  border-radius: 20px;
+  /* 滾動條圓角 */
+  transition: background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@media (hover: hover) {
+  .br-chat-input textarea:hover,
+  .code-style-container .code-style-body:hover {
+    scrollbar-color: var(--color-scrollbar) transparent;
+    /* 滾動條顏色 背景顏色 */
+  }
+  .br-chat-input textarea:hover::-webkit-scrollbar-thumb,
+  .code-style-container .code-style-body:hover::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar);
+    /* 滑鼠移入時改變滾動條顏色 */
+  }
+}
+
 .br-title-block {
   font-size: 0.8125em;
   font-weight: normal;
@@ -1123,6 +1169,46 @@ hr {
   }
 }
 
+.br-btn.add-session {
+  padding: calc(var(--gap) * 2.5) 0;
+  background-color: transparent;
+  margin: 0 0 1px 0;
+  justify-content: flex-start;
+  position: relative;
+  color: var(--color-text-bot);
+}
+
+.br-btn.add-session .icon:before {
+  background-color: var(--color-text-bot);
+}
+
+.br-btn.add-session:before {
+  content: "";
+  display: block;
+  width: calc(100% + 16px);
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  left: -8px;
+  border-radius: calc(var(--rd-form) * 2);
+  background-color: var(--color-text-bot);
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .br-btn.add-session:hover {
+    background-color: transparent;
+    transform: scale(1);
+    color: #fff;
+  }
+  .br-btn.add-session:hover .icon:before {
+    color: #fff;
+  }
+  .br-btn.add-session:hover:before {
+    opacity: 1;
+  }
+}
+
 .br-btn.icon-only {
   padding: 0;
   background-color: transparent;
@@ -1438,6 +1524,33 @@ hr {
   }
 }
 
+.br-chat-top-fnbar-container .mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding: 0 var(--gap);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-chat-top-fnbar);
+}
+
+@media (min-width: 980px) and (orientation: landscape) {
+  .br-chat-top-fnbar-container .mobile-header .nav-toggle {
+    display: none;
+  }
+}
+
+.br-chat-top-fnbar-container .mobile-header .avatar-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.br-chat-top-fnbar-container .mobile-header .avatar-block .avatar {
+  margin-right: var(--gap);
+}
+
 .br-chat-top-fnbar-container.full {
   width: 100%;
 }
@@ -1692,6 +1805,38 @@ hr {
   }
 }
 
+.br-chat-input .fn .br-btn.btn-submit.--stopped {
+  background-color: transparent;
+}
+
+.br-chat-input .fn .br-btn.btn-submit.--stopped .icon:before {
+  -webkit-mask-size: auto 100%;
+  -webkit-mask-position: 0% 0;
+  background-color: var(--color-icon-voice-active);
+}
+
+.br-chat-input .fn .br-btn.btn-submit.--stopped .time-count {
+  visibility: visible;
+  position: absolute;
+  pointer-events: auto;
+  transform: translateX(-130%) scale(1);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.br-chat-input .fn .br-btn.btn-submit.--stopped:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 18px;
+  animation: ripple 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  background-color: var(--color-bg-voice-active);
+}
+
 @media (hover: hover) {
   .br-chat-input .fn .br-btn.btn-submit:hover {
     background-color: var(--color-bg-submit-hover);
@@ -1712,7 +1857,7 @@ hr {
   border-radius: 0;
   font-family: "PingFang", "PingFangTC", "Microsoft JhengHei", Helvetica, Arial;
   font-size: 1em;
-  line-height: 1.375em;
+  line-height: 1.5em;
   color: var(--color-text-chat-input);
   resize: none;
   transition: width 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -2403,7 +2548,6 @@ hr {
 .code-style-container {
   overflow: hidden;
   border-radius: var(--rd-area);
-  mix-blend-mode: var(--blend-mode-codearea);
 }
 
 .code-style-container strong {
@@ -2435,45 +2579,10 @@ hr {
   background-color: var(--bg-body-codearea);
   font-size: 0.875em;
   line-height: 1.5em;
-  padding: var(--gap);
+  padding: 0;
   overflow: auto;
   max-height: 65dvh;
-  /* 為 Webkit 瀏覽器（如 Chrome 和 Safari）設定滾動條樣式 */
-}
-
-.code-style-container .code-style-body {
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-  /* 滾動條顏色 背景顏色 */
-}
-
-.code-style-container .code-style-body::-webkit-scrollbar {
-  width: 12px;
-  /* 滾動條寬度 */
-}
-
-.code-style-container .code-style-body::-webkit-scrollbar-track {
-  background: transparent;
-  /* 滾動條背景顏色 */
-}
-
-.code-style-container .code-style-body::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  /* 滾動條顏色 */
-  border-radius: 20px;
-  /* 滾動條圓角 */
-  transition: background-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-@media (hover: hover) {
-  .code-style-container .code-style-body:hover {
-    scrollbar-color: var(--color-scrollbar) transparent;
-    /* 滾動條顏色 背景顏色 */
-  }
-  .code-style-container .code-style-body:hover::-webkit-scrollbar-thumb {
-    background-color: var(--color-scrollbar);
-    /* 滑鼠移入時改變滾動條顏色 */
-  }
+  mix-blend-mode: var(--blend-mode-codearea);
 }
 
 .code-style-container .code-style-body .--hide {
@@ -2482,4 +2591,10 @@ hr {
 
 .code-style-container .code-style-body.--active {
   display: flex;
+}
+
+.code-style-container .code-style-body pre {
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  padding: var(--gap) !important;
 }
