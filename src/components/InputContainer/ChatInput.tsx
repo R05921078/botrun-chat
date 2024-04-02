@@ -10,6 +10,7 @@ export default function TextArea(props: TextAreaProps) {
   const maxHeight = defaultHeight * 4
   const [text, setText] = useState("")
   const [isRecording, setIsRecording] = useState(false)
+  const [isComposing, setIsComposing] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -57,10 +58,17 @@ export default function TextArea(props: TextAreaProps) {
   }
   function onKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (event.shiftKey && event.key === "Enter") {
-    } else if (event.key === "Enter") {
+    } else if (event.key === "Enter" && !isComposing) {
       handleSend()
       event.preventDefault()
     }
+  }
+  const handleCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = () => {
+    setIsComposing(true)
+  }
+
+  const handleCompositionEnd: React.CompositionEventHandler<HTMLTextAreaElement> = () => {
+    setIsComposing(false)
   }
 
   useEffect(() => {
@@ -86,6 +94,8 @@ export default function TextArea(props: TextAreaProps) {
         className={`${text !== "" ? "--has-value" : ""}`}
         onChange={handleChange}
         onKeyDown={onKeyDown}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
         style={{ height: `${defaultHeight}px` }}
       ></textarea>
 
