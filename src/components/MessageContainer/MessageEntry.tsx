@@ -46,6 +46,11 @@ export const MessageEntry = memo((props: MessageProps) => {
                 </CodeBlock>
               )
             },
+            a: ({ node, href, children, ...props }) => (
+              <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+                {children}
+              </a>
+            ),
           }}
         >
           {content}
