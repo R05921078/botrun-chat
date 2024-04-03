@@ -21,8 +21,8 @@ export function Recorder(props: RecorderProps) {
   useEffect(() => {
     const convertSpeechToText = async () => {
       if (recordingBlob !== undefined) {
-        const now = moment().format("YYYY-MM-DD_HH:mm")
-        const fileName = `即時錄音_${now}.webm`
+        const now = moment().format("YYYY-MM-DD_HH-mm-ss")
+        const fileName = `record_${now}.webm`
         const file = new File([recordingBlob], fileName, { type: "audio/webm" })
 
         if (handleSpeechToText !== undefined) {
