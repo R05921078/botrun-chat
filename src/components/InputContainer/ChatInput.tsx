@@ -3,7 +3,7 @@ import { TextAreaProps } from "../../types"
 import { Recorder } from "./Recorder"
 import { UploadButton } from "./UploadButton"
 
-export default function TextArea(props: TextAreaProps) {
+export default function ChatInput(props: TextAreaProps) {
   const { onMessageSend, handleSpeechToText, handleUploadFiles, disabled = false } = props
   const margin = 12
   const defaultHeight = 48
@@ -17,16 +17,9 @@ export default function TextArea(props: TextAreaProps) {
   function adjustHeight(e: Event) {
     if (!textareaRef.current || !wrapperRef.current) return
     const textarea = textareaRef.current
-    const wrapper = wrapperRef.current
     const target = e.target as HTMLTextAreaElement
     textarea.style.height = defaultHeight + "px"
     textarea.style.height = target.scrollHeight + "px"
-
-    if (parseInt(textarea.style.height) > defaultHeight) {
-      wrapper.classList.add("--col-type")
-    } else {
-      wrapper.classList.remove("--col-type")
-    }
 
     if (textarea.offsetHeight > maxHeight) {
       textarea.style.height = `${maxHeight}px`
@@ -45,7 +38,6 @@ export default function TextArea(props: TextAreaProps) {
     setText("")
     if (textareaRef.current) {
       textareaRef.current.focus()
-      wrapperRef.current?.classList.remove("--col-type")
       textareaRef.current.style.height = defaultHeight + "px"
       document.documentElement.style.setProperty("--chat-input-height", defaultHeight + "px")
     }
@@ -82,7 +74,10 @@ export default function TextArea(props: TextAreaProps) {
   }, [textareaRef, wrapperRef])
 
   return (
-    <div ref={wrapperRef} className={`br-chat-input ${isRecording ? "--voice-type" : ""}`}>
+    <div
+      ref={wrapperRef}
+      className={`br-chat-input ${isRecording ? "--voice-type" : ""} ${text ? "--col-type" : ""}`}
+    >
       <textarea
         ref={textareaRef}
         name=""
