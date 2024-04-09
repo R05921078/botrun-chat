@@ -507,6 +507,10 @@ table {
   height: 60px;
 }
 
+.icon.color-text:before {
+  background-color: var(--color-text-main);
+}
+
 .form-item input[type="radio"],
 .form-item input[type="checkbox"] {
   display: none;
@@ -1348,6 +1352,44 @@ hr {
   width: 42px;
   height: 42px;
   background: linear-gradient(30deg, var(--color-light), var(--color-main));
+}
+
+.br-showmore {
+  font-size: 0.875em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--gap);
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.br-showmore .text-less {
+  display: none;
+}
+
+.br-showmore .icon {
+  opacity: 0.5;
+}
+
+.br-showmore .icon:before {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-text-third);
+}
+
+.br-showmore.--active .text-more {
+  display: none;
+}
+
+.br-showmore.--active .text-less {
+  display: inline-block;
+}
+
+.br-showmore.--active .icon {
+  transform: rotate(180deg);
 }
 
 .dark-mode-switch {

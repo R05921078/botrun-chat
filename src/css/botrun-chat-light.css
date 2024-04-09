@@ -147,6 +147,6 @@
   --bg-header-codearea: #edeae5;
   --bg-footer-codearea: #edeae5;
   --bg-body-codearea: #f7f5f1;
-  --blend-mode-codearea: initial;
+  --blend-mode-codearea: difference;
   --chat-input-height: 62px;
 }
