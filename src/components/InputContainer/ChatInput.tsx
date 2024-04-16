@@ -14,12 +14,11 @@ export default function ChatInput(props: TextAreaProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
 
-  function adjustHeight(e: Event) {
+  function adjustHeight() {
     if (!textareaRef.current || !wrapperRef.current) return
     const textarea = textareaRef.current
-    const target = e.target as HTMLTextAreaElement
     textarea.style.height = defaultHeight + "px"
-    textarea.style.height = target.scrollHeight + "px"
+    textarea.style.height = textarea.scrollHeight + "px"
 
     if (textarea.offsetHeight > maxHeight) {
       textarea.style.height = `${maxHeight}px`
@@ -58,7 +57,6 @@ export default function ChatInput(props: TextAreaProps) {
   const handleCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = () => {
     setIsComposing(true)
   }
-
   const handleCompositionEnd: React.CompositionEventHandler<HTMLTextAreaElement> = () => {
     setIsComposing(false)
   }
@@ -67,11 +65,11 @@ export default function ChatInput(props: TextAreaProps) {
     if (!textareaRef.current || !wrapperRef.current) return
     const textarea = textareaRef.current
     textarea.focus()
-    textarea.addEventListener("input", adjustHeight)
-    return () => {
-      textarea.removeEventListener("input", adjustHeight)
-    }
   }, [textareaRef, wrapperRef])
+
+  useEffect(() => {
+    adjustHeight()
+  }, [text])
 
   return (
     <div
