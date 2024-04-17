@@ -40,10 +40,14 @@ export const MessageEntry = memo((props: MessageProps) => {
             code(props) {
               const { children, className, node, ...rest } = props
               const match = /language-(\w+)/.exec(className || "")
-              return (
+              return match ? (
                 <CodeBlock match={match} handleCopy={handleCopy}>
                   {children}
                 </CodeBlock>
+              ) : (
+                <strong {...rest} className={className}>
+                  {children}
+                </strong>
               )
             },
             a: ({ node, href, children, ...props }) => (
