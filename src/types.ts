@@ -57,4 +57,4 @@ export type BotrunChatProps = MessageContainerProps &
   SpeechToText &
   RemarkPlugins &
   UploadFile &
-  AssistantProps & { theme?: "dark" | "light" }
+  AssistantProps & { theme?: "dark" | "light" } & { layout?: "chat" | "default" }

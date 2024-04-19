@@ -75,6 +75,10 @@ An optional list of remark plugins to extend the markdown rendering capabilities
 
 Each prop plays a crucial role in customizing and controlling the behavior of the `BotrunChat` component. By providing detailed information on each prop, developers can more easily understand how to effectively use the component in their projects.
 
+### `layout` (`"default" | "chat"`, optional)
+
+The `layout` prop determines the alignment of messages within the chat interface. If set to `"default"`, all messages are aligned to the left. When set to `"chat"`, messages from the user (`self`) are aligned to the right, while messages from others are aligned to the left. The default value for this prop is `"default"`.
+
 ## License
 
 This project is licensed under the MIT License.
