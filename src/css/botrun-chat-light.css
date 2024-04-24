@@ -5,7 +5,7 @@
   --color-light: #fdea3f;
   --color-active: #ddc807;
   --color-alert: #ff6666;
-  --height-header-mobile: 50px;
+  --height-header-mobile: 45px;
   --rd-form: 8px;
   --rd-area: 12px;
   --gap: 8px;
@@ -19,7 +19,8 @@
   /*---文字顏色---*/
   --color-text-main: #222;
   --color-text-second: #444;
-  --color-text-third: #565656;
+  --color-text-third: #707070;
+  /*#565656*/
   --color-br-title-block: #999;
   /*小區塊的文字*/
   /*---全域---*/
@@ -146,7 +147,7 @@
   --color-bg-tr-even: #f9f9f9;
   --bg-header-codearea: #edeae5;
   --bg-footer-codearea: #edeae5;
-  --bg-body-codearea: #f7f5f1;
+  --bg-body-codearea: #070709;
   --blend-mode-codearea: difference;
   --chat-input-height: 62px;
 }
