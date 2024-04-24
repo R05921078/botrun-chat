@@ -3,7 +3,7 @@ import { MessageContainerProps } from "../../types"
 import { MessageEntry } from "./MessageEntry"
 
 export default function MessageContainer(props: MessageContainerProps) {
-  const { messages, remarkPlugins } = props
+  const { messages, remarkPlugins, theme } = props
   const endOfMessagesRef = useRef<null | HTMLDivElement>(null)
   useEffect(() => {
     endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -12,7 +12,12 @@ export default function MessageContainer(props: MessageContainerProps) {
     <div className="br-chat-display-container --has-avatar">
       <div className="br-chat-display">
         {messages.map((m, index) => (
-          <MessageEntry key={`br-chat-display-${index}`} {...m} remarkPlugins={remarkPlugins} />
+          <MessageEntry
+            key={`br-chat-display-${index}`}
+            {...m}
+            remarkPlugins={remarkPlugins}
+            theme={theme}
+          />
         ))}
         <div ref={endOfMessagesRef} />
       </div>

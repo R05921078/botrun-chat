@@ -7,7 +7,8 @@ export type MessageProps = {
   name: string
   content: string
   suggestions?: SuggestionProps[]
-} & RemarkPlugins
+} & RemarkPlugins &
+  ThemeProps
 
 export type SuggestionProps = {
   onClick: Function
@@ -18,13 +19,14 @@ export type CodeBlockProps = {
   match: RegExpExecArray | null
   children: React.ReactNode
   handleCopy: (text: string) => void
-}
+} & ThemeProps
 
 export type AssistantProps = { assistantComponent?: React.ReactElement | null }
 
 export type MessageContainerProps = {
   messages: MessageProps[]
-} & RemarkPlugins
+} & RemarkPlugins &
+  ThemeProps
 
 export type SpeechToText = {
   handleSpeechToText?: (file: File) => Promise<string>
@@ -57,4 +59,9 @@ export type BotrunChatProps = MessageContainerProps &
   SpeechToText &
   RemarkPlugins &
   UploadFile &
-  AssistantProps & { theme?: "dark" | "light" } & { layout?: "chat" | "default" }
+  AssistantProps &
+  ThemeProps & { layout?: "chat" | "default" }
+
+export type ThemeProps = {
+  theme?: "dark" | "light"
+}

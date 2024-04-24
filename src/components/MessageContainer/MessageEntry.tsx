@@ -9,7 +9,7 @@ function arePropsEqual(oldProps: MessageProps, newProps: MessageProps) {
 }
 
 export const MessageEntry = memo((props: MessageProps) => {
-  const { sender, avatar, name, content, suggestions, remarkPlugins } = props
+  const { sender, avatar, name, content, suggestions, remarkPlugins, theme } = props
   const handleCopy = (text: string) => {
     if (sender !== "self") text = text + "\n[Boosted by Botrun.ai]"
     navigator.clipboard
@@ -41,7 +41,7 @@ export const MessageEntry = memo((props: MessageProps) => {
               const { children, className, node, ...rest } = props
               const match = /language-(\w+)/.exec(className || "")
               return match ? (
-                <CodeBlock match={match} handleCopy={handleCopy}>
+                <CodeBlock match={match} handleCopy={handleCopy} theme={theme}>
                   {children}
                 </CodeBlock>
               ) : (
