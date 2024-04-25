@@ -1,6 +1,6 @@
 {
   "name": "@botrun/chat",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "A chatroom for botrun.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
