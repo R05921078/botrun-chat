@@ -44,11 +44,13 @@ export type RemarkPlugins = {
 export type RecorderProps = {
   setIsRecording: React.Dispatch<React.SetStateAction<boolean>>
   setText: React.Dispatch<React.SetStateAction<string>>
+  speedySpeech: boolean
 } & SpeechToText
 
 export type TextAreaProps = {
   onMessageSend: (message: string) => void
   disabled?: boolean
+  speedySpeech?: boolean
 } & SpeechToText &
   UploadFile
 
@@ -60,7 +62,7 @@ export type BotrunChatProps = MessageContainerProps &
   RemarkPlugins &
   UploadFile &
   AssistantProps &
-  ThemeProps & { layout?: "chat" | "default" }
+  ThemeProps & { layout?: "chat" | "default"; speedySpeech?: boolean }
 
 export type ThemeProps = {
   theme?: "dark" | "light"

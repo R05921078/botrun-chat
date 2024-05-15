@@ -4,7 +4,13 @@ import { Recorder } from "./Recorder"
 import { UploadButton } from "./UploadButton"
 
 export default function ChatInput(props: TextAreaProps) {
-  const { onMessageSend, handleSpeechToText, handleUploadFiles, disabled = false } = props
+  const {
+    onMessageSend,
+    handleSpeechToText,
+    handleUploadFiles,
+    disabled = false,
+    speedySpeech = false,
+  } = props
   const margin = 12
   const defaultHeight = 48
   const maxHeight = defaultHeight * 4
@@ -98,6 +104,7 @@ export default function ChatInput(props: TextAreaProps) {
           setIsRecording={setIsRecording}
           setText={setText}
           handleSpeechToText={handleSpeechToText}
+          speedySpeech={speedySpeech}
         />
         <button className="br-btn icon-only btn-remove" title="清除輸入文字" onClick={clearText}>
           <i className="icon icon-5"></i>

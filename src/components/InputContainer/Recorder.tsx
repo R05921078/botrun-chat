@@ -4,7 +4,7 @@ import { useAudioRecorder } from "react-audio-voice-recorder"
 import moment from "moment"
 
 export function Recorder(props: RecorderProps) {
-  const { setIsRecording, setText, handleSpeechToText } = props
+  const { setIsRecording, setText, handleSpeechToText, speedySpeech } = props
   const { startRecording, stopRecording, recordingBlob, isRecording, recordingTime } =
     useAudioRecorder()
   const duration = moment.duration(recordingTime, "seconds")
@@ -37,7 +37,9 @@ export function Recorder(props: RecorderProps) {
 
   return (
     <button
-      className={`br-btn icon-only btn-voice ${isRecording ? "--active" : ""}`}
+      className={`br-btn icon-only btn-voice ${isRecording ? "--active" : ""} ${
+        speedySpeech ? "--instant" : ""
+      }`}
       title="聲音輸入"
       onClick={handleRecording}
     >
