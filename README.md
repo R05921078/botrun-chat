@@ -79,6 +79,10 @@ Each prop plays a crucial role in customizing and controlling the behavior of th
 
 The `layout` prop determines the alignment of messages within the chat interface. If set to `"default"`, all messages are aligned to the left. When set to `"chat"`, messages from the user (`self`) are aligned to the right, while messages from others are aligned to the left. The default value for this prop is `"default"`.
 
+### `speedySpeech` (`boolean`, optional)
+
+The `speedySpeech` prop allows you to enhance the visual feedback of the speech-to-text functionality. When set to `true`, it changes the microphone icon to include a lightning symbol, indicating a "speedy" mode. The default value of this prop is `false`.
+
 ## License
 
 This project is licensed under the MIT License.
