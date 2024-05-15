@@ -1372,6 +1372,17 @@ hr {
   -moz-user-select: none;
   -webkit-user-select: none;
   cursor: pointer;
+  position: sticky;
+  left: 0;
+  bottom: calc(var(--gap) * -1);
+  background-color: var(--color-bg-sidebar);
+  height: 35px;
+}
+
+@media (min-width: 1700px) {
+  .br-showmore {
+    bottom: calc(var(--gap) * -2);
+  }
 }
 
 .br-showmore > span {
@@ -1524,6 +1535,43 @@ hr {
   }
 }
 
+.br-btn.instant-voice-switch {
+  position: relative;
+}
+
+.br-btn.instant-voice-switch.--active:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  border-radius: 5px;
+  width: 10px;
+  height: 18px;
+  background-color: var(--color-text-btn-obvious);
+  opacity: 1;
+  z-index: 1;
+  transform: translate(-99%, -50%);
+}
+
+.br-btn.instant-voice-switch.--active .icon {
+  opacity: 1;
+  z-index: 2;
+  position: relative;
+}
+
+.br-btn.instant-voice-switch.--active .icon:before {
+  background-color: var(--color-border-btn-obvious) !important;
+}
+
+@media (hover: hover) {
+  .br-btn.instant-voice-switch.--active:hover .icon {
+    opacity: 1;
+  }
+  .br-btn.instant-voice-switch.--active:hover .icon:before {
+    background-color: var(--color-border-btn-obvious) !important;
+  }
+}
+
 .br-chat-component {
   display: flex;
   flex-direction: column;
@@ -1669,7 +1717,13 @@ hr {
 .br-chat-display {
   width: 100%;
   padding-bottom: 20px;
-  overflow-y: auto;
+}
+
+@media (min-width: 740px) {
+  .br-chat-display {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 980px) and (orientation: landscape) {
@@ -1686,8 +1740,16 @@ hr {
   position: relative;
 }
 
+@media (min-width: 740px) {
+  .br-chat-input-container {
+    width: calc(80% + 83px);
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 980px) and (orientation: landscape) {
   .br-chat-input-container {
+    width: 100%;
     padding: 0 13px 12px 0;
   }
 }
@@ -1838,6 +1900,11 @@ hr {
   .br-chat-input .fn .br-btn:hover .icon:before {
     background-color: var(--color-icon-btnfn-hover);
   }
+}
+
+.br-chat-input .fn .br-btn.btn-voice.--instant .icon:before {
+  -webkit-mask-size: auto 100%;
+  -webkit-mask-position: 41.77% 0;
 }
 
 .br-chat-input .fn .br-btn.btn-voice.--active .icon:before {
@@ -2659,6 +2726,26 @@ hr {
 .code-style-container {
   overflow: hidden;
   border-radius: var(--rd-area);
+  min-width: 100%;
+  margin-top: var(--gap);
+}
+
+@media (min-width: 740px) {
+  .code-style-container {
+    min-width: 50vw;
+  }
+}
+
+@media (min-width: 980px) {
+  .code-style-container {
+    min-width: 400px;
+  }
+}
+
+@media (min-width: 1380px) {
+  .code-style-container {
+    min-width: 500px;
+  }
 }
 
 .code-style-container strong {
@@ -2714,6 +2801,7 @@ hr {
 
 .code-style-container .code-style-body pre {
   border-radius: 0 !important;
+  background-color: transparent !important;
   padding: var(--gap) !important;
 }
 
@@ -2741,4 +2829,9 @@ hr {
   border-radius: 0 0 var(--rd-area) var(--rd-area);
   box-sizing: border-box;
   opacity: 0.9;
+}
+
+.code-style-container.--collapse .icon-31:before {
+  -webkit-mask-size: auto 100%;
+  -webkit-mask-position: 39.24% 0;
 }

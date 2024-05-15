@@ -147,7 +147,7 @@
   --color-bg-tr-even: #f9f9f9;
   --bg-header-codearea: #edeae5;
   --bg-footer-codearea: #edeae5;
-  --bg-body-codearea: #070709;
-  --blend-mode-codearea: difference;
+  --bg-body-codearea: #f6f4f0;
+  --blend-mode-codearea: initial;
   --chat-input-height: 62px;
 }
