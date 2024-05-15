@@ -26,10 +26,8 @@ export function Recorder(props: RecorderProps) {
         const file = new File([recordingBlob], fileName, { type: "audio/webm" })
 
         if (handleSpeechToText !== undefined) {
-          // show ChatAssistant with custom message here
           const text = await handleSpeechToText(file)
-          setText(text)
-          // hide ChatAssistant
+          if (text !== "") setText(text)
         }
       }
     }
