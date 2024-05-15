@@ -59,7 +59,7 @@ A callback function that is called when a new message is sent. It receives the m
 
 ### `handleSpeechToText` (`(file: File) => Promise<string>`, optional)
 
-A function for converting speech to text. It takes a `File` representing the audio file as input and returns a `Promise` that resolves to a string of the converted text.
+A function for converting speech to text. It takes a `File` representing the audio file as input and returns a `Promise` that resolves to a string of the converted text. If the string is not empty, it will automatically be set in the input area.
 
 ### `handleUploadFiles` (`(files: FileList) => void`, optional)
 
