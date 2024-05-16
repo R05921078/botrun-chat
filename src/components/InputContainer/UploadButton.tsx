@@ -10,6 +10,7 @@ export function UploadButton(props: UploadFile) {
   function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files && handleUploadFiles) {
       handleUploadFiles(e.target.files)
+      e.target.value = ""
     }
   }
   return (
