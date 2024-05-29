@@ -83,6 +83,10 @@ The `layout` prop determines the alignment of messages within the chat interface
 
 The `speedySpeech` prop allows you to enhance the visual feedback of the speech-to-text functionality. When set to `true`, it changes the microphone icon to include a lightning symbol, indicating a "speedy" mode. The default value of this prop is `false`.
 
+### `messagesOnly` (`boolean`, optional)
+
+When `true`, the `InputContainer` component will not be displayed, and only the messages will be shown. This is useful for scenarios where you want to present a read-only view of the chat history. The default value is `false`.
+
 ## License
 
 This project is licensed under the MIT License.
