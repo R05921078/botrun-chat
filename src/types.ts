@@ -62,7 +62,7 @@ export type BotrunChatProps = MessageContainerProps &
   RemarkPlugins &
   UploadFile &
   AssistantProps &
-  ThemeProps & { layout?: "chat" | "default"; speedySpeech?: boolean }
+  ThemeProps & { layout?: "chat" | "default"; speedySpeech?: boolean; messagesOnly?: boolean }
 
 export type ThemeProps = {
   theme?: "dark" | "light"
