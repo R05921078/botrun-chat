@@ -5,11 +5,26 @@ import { MessageEntry } from "./MessageEntry"
 export default function MessageContainer(props: MessageContainerProps) {
   const { messages, remarkPlugins, theme } = props
   const endOfMessagesRef = useRef<null | HTMLDivElement>(null)
-  useEffect(() => {
+  const messageContainerRef = useRef<null | HTMLDivElement>(null)
+
+  const scrollToBottom = () => {
     endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const isScrolledToBottom = () => {
+    if (!messageContainerRef.current) return true
+    const { scrollTop, scrollHeight, clientHeight } = messageContainerRef.current
+    return scrollHeight - scrollTop - clientHeight < 100
+  }
+
+  useEffect(() => {
+    if (isScrolledToBottom()) {
+      scrollToBottom()
+    }
   }, [messages])
+
   return (
-    <div className="br-chat-display-container --has-avatar">
+    <div className="br-chat-display-container --has-avatar" ref={messageContainerRef}>
       <div className="br-chat-display">
         {messages.map((m, index) => (
           <MessageEntry
